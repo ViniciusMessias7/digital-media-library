@@ -1,10 +1,12 @@
 package com.medialibrary.app;
 
-import com.medialibrary.domain.Book;
+
+import com.medialibrary.domain.MediaItem;
 
 public class Main {
     public static void main(String[] args) {
-        Book book1 = new Book("The Godfather",1969,"9788055111360","G. P. Putnam's Sons");
-        System.out.println(book1);
+        System.out.println("--- Testing MediaItem ---");
+        MediaItem genericItem = new MediaItem("Se7en", 1995);
+        System.out.println(genericItem);
     }
 }
