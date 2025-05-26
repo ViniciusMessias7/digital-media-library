@@ -1,12 +1,10 @@
 package com.medialibrary.app;
 
-
-import com.medialibrary.domain.MediaItem;
+import com.medialibrary.domain.Movie;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("--- Testing MediaItem ---");
-        MediaItem genericItem = new MediaItem("Se7en", 1995);
-        System.out.println(genericItem);
+        Movie testing = new Movie("Se7en", 1995, "David Fincher", 127);
+        System.out.println(testing);
     }
 }
