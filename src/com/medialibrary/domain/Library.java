@@ -25,4 +25,13 @@ public class Library {
     public void addMediaItem(MediaItem media) {
         this.mediaItems.add(media);
     }
+
+    public MediaItem findMediaItemByTitle(String titleSearch) {
+        for (MediaItem mediaItem : mediaItems) {
+            if (mediaItem.getTitle().equalsIgnoreCase(titleSearch)) {
+                return mediaItem;
+            }
+        }
+        return null;
+    }
 }
