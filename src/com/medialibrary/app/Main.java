@@ -16,10 +16,19 @@ public class Main {
         library69.showMedias();
 
         MediaItem foundItem = library69.findMediaItemByTitle("Se7en");
-        if (foundItem != null) {
-            System.out.println("Found " + foundItem);
-        } else {
+        if (foundItem == null) {
             System.out.println("Media item not found.");
+        } else {
+            System.out.println("Found " + foundItem);
+        }
+        System.out.println();
+
+
+        MediaItem removeItem = library69.removeMediaItemByTitle("the godfather");
+        if (removeItem == null) {
+            System.out.println("This media don't exist!");
+        } else {
+            System.out.println("Removed " + removeItem);
         }
     }
 }
