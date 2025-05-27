@@ -11,15 +11,15 @@ public class Library {
     }
 
     public void showMedias() {
-        System.out.println("--- Library Contents ---");
         if (mediaItems.isEmpty()) {
             System.out.println("The library is currently empty.");
             return;
         }
         for (MediaItem mediaItem : mediaItems) {
+            System.out.println("Media Type: " + mediaItem.getMediaType());
             System.out.println(mediaItem);
+            System.out.println();
         }
-        System.out.println("------------------------");
     }
 
     public void addMediaItem(MediaItem media) {

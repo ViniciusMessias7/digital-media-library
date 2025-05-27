@@ -1,6 +1,6 @@
 package com.medialibrary.domain;
 
-public class MediaItem {
+public abstract class MediaItem {
     private final String title;
     private final int yearPublication;
 
@@ -21,5 +21,7 @@ public class MediaItem {
     public int getYearPublication() {
         return this.yearPublication;
     }
+
+    public abstract String getMediaType();
 
 }

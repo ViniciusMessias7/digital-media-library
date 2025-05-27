@@ -12,7 +12,7 @@ public class Book extends MediaItem {
 
     @Override
     public String toString() {
-        return "Book [Title: " + getTitle() +
+        return "[Title: " + getTitle() +
                 ", Year: " + getYearPublication() +
                 ", ISBN: " + this.isbn +
                 ", Publisher: " + this.publisher +
@@ -26,5 +26,10 @@ public class Book extends MediaItem {
 
     public String getPublisher() {
         return this.publisher;
+    }
+
+    @Override
+    public String getMediaType() {
+        return "Book";
     }
 }
