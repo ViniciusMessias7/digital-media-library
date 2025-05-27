@@ -37,11 +37,13 @@ public class Library {
             System.out.println("The library is currently empty.");
             return;
         }
-        System.out.println("\n--- Library Contents ---");
-        for (MediaItem mediaItem : mediaItems) {
-            System.out.println("Media Type: " + mediaItem.getMediaType());
-            System.out.println(mediaItem);
-            System.out.println();
+        System.out.println("--- Library Contents ---");
+        for (int i = 0; i < mediaItems.size(); i++) {
+            System.out.println("Media Type: " + mediaItems.get(i).getMediaType());
+            System.out.println(mediaItems.get(i));
+            if (i < mediaItems.size() - 1) {
+                System.out.print("\n");
+            }
         }
         System.out.println("------------------------");
     }
