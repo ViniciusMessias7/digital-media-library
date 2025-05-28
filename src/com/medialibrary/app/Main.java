@@ -46,12 +46,9 @@ public class Main {
                             case '1':
                                 System.out.println("\nLet's add a book.");
 
-                                System.out.print("Title: ");
-                                String title = input.nextLine();
+                                String title1 = promptAndReadTitle(input);
 
-                                System.out.print("Year of publication: ");
-                                int yearPublication = input.nextInt();
-                                input.nextLine();
+                                int yearOfPublication1 = promptAndReadYear(input);
 
                                 System.out.print("ISBN: ");
                                 String isbn = input.nextLine();
@@ -59,7 +56,7 @@ public class Main {
                                 System.out.print("Publisher: ");
                                 String publisher = input.nextLine();
 
-                                Book book = new Book(title, yearPublication, isbn, publisher);
+                                Book book = new Book(title1, yearOfPublication1, isbn, publisher);
                                 System.out.println("Book added successfully!");
                                 library.addMediaItem(book);
                                 instruction = '0';
@@ -67,12 +64,9 @@ public class Main {
                             case '2':
                                 System.out.println("\nLet's add a movie.");
 
-                                System.out.print("Title: ");
-                                String title2 = input.nextLine();
+                                String title2 = promptAndReadTitle(input);
 
-                                System.out.print("Year of publication: ");
-                                int yearPublication2 = input.nextInt();
-                                input.nextLine();
+                                int yearOfPublication2 = promptAndReadYear(input);
 
                                 System.out.print("Director: ");
                                 String director = input.nextLine();
@@ -81,7 +75,7 @@ public class Main {
                                 int durationInMinutes = input.nextInt();
                                 input.nextLine();
 
-                                Movie movie = new Movie(title2, yearPublication2, director, durationInMinutes);
+                                Movie movie = new Movie(title2, yearOfPublication2, director, durationInMinutes);
                                 System.out.println("movie added successfully!");
                                 library.addMediaItem(movie);
                                 instruction = '0';
@@ -89,12 +83,9 @@ public class Main {
                             case '3':
                                 System.out.println("\nLet's add a music album.");
 
-                                System.out.print("Title: ");
-                                String title3 = input.nextLine();
+                                String title3 = promptAndReadTitle(input);
 
-                                System.out.print("Year of publication: ");
-                                int yearPublication3 = input.nextInt();
-                                input.nextLine();
+                                int yearOfPublication3 = promptAndReadYear(input);
 
                                 System.out.print("Artist: ");
                                 String artist = input.nextLine();
@@ -103,10 +94,13 @@ public class Main {
                                 int tracks = input.nextInt();
                                 input.nextLine();
 
-                                MusicAlbum musicAlbum = new MusicAlbum(title3, yearPublication3, artist, tracks);
+                                MusicAlbum musicAlbum = new MusicAlbum(title3, yearOfPublication3, artist, tracks);
                                 System.out.println("Music album added successfully!");
                                 library.addMediaItem(musicAlbum);
                                 instruction = '0';
+                                break;
+                            default:
+                                System.out.println("\nInvalid option, please try again.\n");
                                 break;
                         }
                     }
@@ -146,4 +140,17 @@ public class Main {
 
         }
     }
+
+    private static String promptAndReadTitle(Scanner input) {
+        System.out.print("Title: ");
+        return input.nextLine();
+    }
+
+    private static int promptAndReadYear(Scanner input) {
+        System.out.print("Year of publication: ");
+        int yearOfPublication = input.nextInt();
+        input.nextLine();
+        return yearOfPublication;
+    }
+
 }
