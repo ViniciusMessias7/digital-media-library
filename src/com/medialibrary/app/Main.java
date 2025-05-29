@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Library library = new Library();
-        char command = ' ';
         char userChoiceCommand = ' ';
 
         System.out.println("Welcome to Digital Media Library!");
@@ -41,7 +40,7 @@ public class Main {
             handleLibrarianSession(input, library);
         } else {
             System.out.println("\n-- Member Session Starting --");
-            handleMemberSession(input,library);
+            handleMemberSession(input, library);
         }
 
     }
@@ -96,61 +95,29 @@ public class Main {
 
                         switch (instruction) {
                             case '1':
-                                System.out.println("\nLet's add a book.");
-
-                                String title1 = promptAndReadTitle(input);
-
-                                int yearOfPublication1 = promptAndReadYear(input);
-
-                                System.out.print("ISBN: ");
-                                String isbn = input.nextLine();
-
-                                System.out.print("Publisher: ");
-                                String publisher = input.nextLine();
-
-                                Book book = new Book(title1, yearOfPublication1, isbn, publisher);
+                                MediaItem book = createNewBookFromUserInput(input);
                                 System.out.println("Book added successfully!");
+
                                 library.addMediaItem(book);
+
                                 instruction = '0';
                                 System.out.println();
                                 break;
                             case '2':
-                                System.out.println("\nLet's add a movie.");
-
-                                String title2 = promptAndReadTitle(input);
-
-                                int yearOfPublication2 = promptAndReadYear(input);
-
-                                System.out.print("Director: ");
-                                String director = input.nextLine();
-
-                                System.out.print("Duration of the movie: ");
-                                int durationInMinutes = input.nextInt();
-                                input.nextLine();
-
-                                Movie movie = new Movie(title2, yearOfPublication2, director, durationInMinutes);
+                                MediaItem movie = createNewMovieFromUserInput(input);
                                 System.out.println("movie added successfully!");
+
                                 library.addMediaItem(movie);
+
                                 instruction = '0';
                                 System.out.println();
                                 break;
                             case '3':
-                                System.out.println("\nLet's add a music album.");
-
-                                String title3 = promptAndReadTitle(input);
-
-                                int yearOfPublication3 = promptAndReadYear(input);
-
-                                System.out.print("Artist: ");
-                                String artist = input.nextLine();
-
-                                System.out.print("Tracks: ");
-                                int tracks = input.nextInt();
-                                input.nextLine();
-
-                                MusicAlbum musicAlbum = new MusicAlbum(title3, yearOfPublication3, artist, tracks);
+                                MediaItem musicAlbum = createNewMusicAlbumFromUserInput(input);
                                 System.out.println("Music album added successfully!");
+
                                 library.addMediaItem(musicAlbum);
+
                                 instruction = '0';
                                 System.out.println();
                                 break;
@@ -214,5 +181,55 @@ public class Main {
             }
 
         }
+    }
+
+    private static Book createNewBookFromUserInput(Scanner input) {
+        System.out.println("\nLet's add a book");
+
+        String title = promptAndReadTitle(input);
+
+        int yearOfPublication = promptAndReadYear(input);
+
+        System.out.print("ISBN: ");
+        String isbn = input.nextLine();
+
+        System.out.print("Publisher: ");
+        String publisher = input.nextLine();
+
+        return new Book(title, yearOfPublication, isbn, publisher);
+    }
+
+    private static Movie createNewMovieFromUserInput(Scanner input) {
+        System.out.println("\nLet's add a movie.");
+
+        String title = promptAndReadTitle(input);
+
+        int yearOfPublication = promptAndReadYear(input);
+
+        System.out.print("Director: ");
+        String director = input.nextLine();
+
+        System.out.print("Duration of the movie: ");
+        int durationInMinutes = input.nextInt();
+        input.nextLine();
+
+        return new Movie(title, yearOfPublication, director, durationInMinutes);
+    }
+
+    private static MusicAlbum createNewMusicAlbumFromUserInput(Scanner input) {
+        System.out.println("\nLet's add a music album.");
+
+        String title = promptAndReadTitle(input);
+
+        int yearOfPublication = promptAndReadYear(input);
+
+        System.out.print("Artist: ");
+        String artist = input.nextLine();
+
+        System.out.print("Tracks: ");
+        int tracks = input.nextInt();
+        input.nextLine();
+
+        return new MusicAlbum(title, yearOfPublication, artist, tracks);
     }
 }
